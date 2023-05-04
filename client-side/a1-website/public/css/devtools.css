@@ -1,0 +1,15 @@
+/**
+ * To verify that all tools works.
+ */
+main {
+  margin: 0 auto;
+  max-width: 700px;
+  min-height: 20em;
+  padding: 1em;
+  color: green;
+  background-color: #ddd;
+}
+
+h1 {
+  border-bottom: 1px double green;
+}

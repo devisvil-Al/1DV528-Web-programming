@@ -1,0 +1,85 @@
+body {
+  background-image: url("../assets/background2.png");
+  background-size: cover;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.dateDiv {
+  border: 1px solid white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 20px;
+  width: 200px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.bar {
+  background-color: rgb(36, 35, 35);
+  position: absolute;
+  width: 90px;
+  height: 100vh;
+}
+
+.bar div {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+
+.bar div button {
+  padding-bottom: 5px;
+  margin: 5px;
+  height: 60px;
+  background-blend-mode: luminosity;
+  border-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.memoryApp {
+  background-image: url("../assets/memory-game-logo.png");
+}
+
+.chattApp {
+  background-image: url("../assets/chat.png");
+}
+
+
+.nasaApp {
+  background-image: url("../assets/nasa.png");
+}
+
+
+.bar div button:hover {
+  background-color: rgba(145, 145, 145, 0.5);
+  background-blend-mode: overlay;
+  border-radius: 10px;
+}
+
+
+.bar div button:active {
+  background-color: rgba(145, 145, 145, 0.9);
+  background-blend-mode: overlay;
+  border-radius: 10px;
+}
+
+.space {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}

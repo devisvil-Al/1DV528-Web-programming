@@ -1,0 +1,36 @@
+{
+  "name": "development-tools",
+  "version": "1.0.0",
+  "description": "Development tools",
+  "devDependencies": {
+    "eslint": "^8.25.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.3.13",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.1.0",
+    "htmlhint": "^1.1.4",
+    "http-server": "^14.1.1",
+    "jsdoc": "^3.6.11",
+    "stylelint": "^14.14.0"
+  },
+  "scripts": {
+    "htmlhint": "npx htmlhint ./public || exit 0",
+    "stylelint": "npx stylelint \"./public/**/*.css\" || exit 0",
+    "stylelint:fix": "npx stylelint --fix \"./public/**/*.css\" || exit 0",
+    "eslint": "npx eslint . || exit 0",
+    "eslint:fix": "npx eslint . --fix || exit 0",
+    "jsdoc": "npx jsdoc -c .jsdoc.json || exit 0",
+    "lint": "npm run htmlhint && npm run stylelint && npm run eslint",
+    "http-server": "npx http-server -p 9001 ",
+    "test": "exit 0",
+    "clean": "rm -rf build/",
+    "clean-all": "npm run clean && rm -rf node_modules/ && rm -f package-lock.json"
+  },
+  "repository": {
+    "type": "url",
+    "url": "https://gitlab.com/mikael-roos/development-environment-javascript"
+  },
+  "author": "Mikael Roos",
+  "license": "ISC"
+}

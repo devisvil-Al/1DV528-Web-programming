@@ -1,0 +1,111 @@
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  justify-items: center;
+  align-content: center;
+}
+
+input {
+  text-align: center;
+  padding: 8px;
+  width: 50% auto;
+  background-color: rgb(244, 245, 252);
+}
+
+label {
+  text-size-adjust: 80%;
+  margin: 1em;
+  padding-inline: 2px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.name-form,
+.question-container,
+.result-div {
+  width: 50%;
+  text-align: center;
+  background-color: rgba(169, 180, 216, 0.459);
+  padding: 20px;
+  border: 2px solid rgba(0, 60, 255, 0.5);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.radio-buttons {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.radio-buttons label {
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: rgba(0, 60, 255, 0.2);
+  margin: 10px;
+  display: flex;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+}
+
+
+
+button {
+  width: 30%;
+  background-color: rgba(0, 60, 255, 0.8);
+  color: white;
+  padding: 14px 20px;
+  margin: 1em;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+
+.progress-container {
+  margin: 1em auto;
+  width: 70%;
+  height: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.progress-bar {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  transition: all 1s linear;
+}
+
+
+
+.result-div tbody {
+  width: 100%;
+  background-color: rgba(54, 98, 243, 0.4);
+}
+
+.result-div thead {
+  background-color: rgba(0, 60, 255, 0.5);
+  height: 3em;
+}
+
+
+.result-div td {
+  padding: 10px;
+  width: 50em;
+  height: 2em;
+}

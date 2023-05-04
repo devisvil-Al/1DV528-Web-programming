@@ -1,0 +1,60 @@
+{
+  "name": "b3-production",
+  "version": "1.0.0",
+  "description": "Real Time Web Application - B3 Production",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx nodemon index.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "htmlhint": "npx htmlhint ./public || exit 0",
+    "stylelint": "npx stylelint \"./public/**/*.css\" || exit 0",
+    "stylelint:fix": "npx stylelint --fix \"./public/**/*.css\" || exit 0",
+    "eslint": "npx eslint . --ext .mjs || exit 0",
+    "eslint:fix": "npx eslint . --ext .mjs --fix || exit 0",
+    "jsdoc": "npx jsdoc -c .jsdoc.json || exit 0",
+    "lint": "npm run htmlhint && npm run stylelint && npm run eslint",
+    "clean": "rm -rf build/",
+    "clean-all": "npm run clean && rm -rf node_modules/ && rm -f package-lock.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv528/student/ss225bx/b3-production.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^40.0.0",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "htmlhint": "^1.1.4",
+    "jsdoc": "^4.0.0",
+    "nodemon": "^2.0.20",
+    "stylelint": "^15.1.0",
+    "vite": "^4.1.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cros": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.9.2",
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0",
+    "passport-facebook": "^3.0.0",
+    "passport-gitlab2": "^5.0.0",
+    "passport-google-oauth2": "^0.2.0",
+    "passport-google-oauth20": "^2.0.0",
+    "socket.io": "^4.6.1",
+    "socket.io-client": "^4.6.1",
+    "uuid": "^9.0.0",
+    "ws": "^8.13.0"
+  }
+}

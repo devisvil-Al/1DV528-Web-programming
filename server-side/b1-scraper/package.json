@@ -1,0 +1,42 @@
+{
+  "name": "b1-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "htmlhint": "npx htmlhint ./public || exit 0",
+    "stylelint": "npx stylelint \"./public/**/*.css\" || exit 0",
+    "stylelint:fix": "npx stylelint --fix \"./public/**/*.css\" || exit 0",
+    "eslint": "npx eslint . || exit 0",
+    "eslint:fix": "npx eslint . --fix || exit 0",
+    "jsdoc": "npx jsdoc -c .jsdoc.json || exit 0",
+    "lint": "npm run htmlhint && npm run stylelint && npm run eslint",
+    "clean": "rm -rf build/",
+    "clean-all": "npm run clean && rm -rf node_modules/ && rm -f package-lock.json",
+    "start": "node ./src/js/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.lnu.se:1dv528/student/ss225bx/b1-scraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^39.6.6",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "htmlhint": "^1.1.4",
+    "jsdoc": "^4.0.0",
+    "node-html-parser": "^6.1.4",
+    "stylelint": "^14.16.1",
+    "vite": "^4.0.4"
+  }
+}

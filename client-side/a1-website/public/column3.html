@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>About</title>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let e = document.getElementsByTagName("include");
+            for(var t = 0; t < e.length; t++) {
+                let a = e[t];
+                n(e[t].attributes.src.value, function(e) {
+                    a.insertAdjacentHTML("afterend", e), a.remove()
+                })
+            }
+            function n(e,t) {
+                fetch(e).then(e => e.text()).then(e => t(e))
+            }
+        });
+
+    </script>
+    
+   
+</head>
+<body>
+
+   <include src="resources/header.html"></include>
+   <include src="resources/navbar.html"></include>
+   
+
+
+   <div class="columns">
+
+
+    <aside class="left">
+        <h2>Left Column</h2>
+        <p> Here we can add some stuff.</p>
+
+       
+        
+    </aside>
+
+        <main>
+            
+
+
+            <div>
+                <h2>Mid Column</h2>
+                <p>
+                    This is the mid column.
+                </p> 
+                <p>
+                   we can write things here and add stuff as images  
+                </p>
+
+                <p>
+                    it was a very nice and good excircise to do this time. I'm hopping that the upcoming assignments are fun to do as well.
+                </p>   
+                <p>
+                    
+                </p>
+            </div>
+
+            
+        </main>
+
+        
+        <aside class="right">
+            <h2>Right Column</h2>
+            <p> Here we can add some stuff.</p>
+
+        </aside>
+
+   </div>
+
+
+
+   <include src="resources/footer.html"></include>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+services:
+
+  # Nginx with a static website
+  nginx:
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    ports:
+      - "9080:80"
+      - "9443:443"
+    volumes:
+      - ./.docker/nginx/conf.d:/etc/nginx/conf.d # This maps nginx config volume
+      - ./public:/public # This maps your local public directory volume
+
+  # Node example, with or without server
+  node:
+    build:
+      context: .
+      dockerfile: .docker/node/Dockerfile
+    ports:
+      - "9003:9003"
+    volumes:
+      - .:/app
+      - /app/node_modules/
