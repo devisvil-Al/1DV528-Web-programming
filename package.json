@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@gitlab.lnu.se:1dv528/student/ss225bx/b3-production.git"
+    "url": "git@gitlab.lnu.se:1dv528/student/es225hi/b3-production.git"
   },
   "keywords": [],
   "author": "",
@@ -47,6 +47,7 @@
     "express-session": "^1.17.3",
     "mongoose": "^6.9.2",
     "morgan": "^1.10.0",
+    "node-fetch": "^3.3.2",
     "passport": "^0.6.0",
     "passport-facebook": "^3.0.0",
     "passport-gitlab2": "^5.0.0",

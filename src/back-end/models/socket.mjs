@@ -1,13 +1,9 @@
 
 import { Server } from 'socket.io'
-
 const Socket = {}
-
-export default Socket
-
-
 Socket.io = null
 
+// инициализация и настройка webSocket
 Socket.init = (httpServer) => {
   if (Socket.io) {
     return
@@ -18,14 +14,9 @@ Socket.init = (httpServer) => {
   })
 }
 
-Socket.getSocket = () => {
-  return Socket.io
-}
+//получение сокета 
+Socket.getSocket = () => Socket.io
+// отправка сообщений
+Socket.notify = (event, data) => Socket.io.emit(event, data)
 
-
-Socket.notify = (event, data) => {
-  console.log(data);
-  Socket.io.emit(event, data)
-}
-
-
+export default Socket

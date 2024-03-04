@@ -1,14 +1,21 @@
-
 const SERVERURL = "http://localhost:3000";
 
 import divsCreater from './divsCreater.mjs';
 import mainFunctions from './main.mjs';
+import { state } from './state.mjs';
 
-mainFunctions.createHome(true);
+if(window.location.pathname !== '/') {
+  window.history.pushState({}, '', '/projects');
+  mainFunctions.createHeader()
+  mainFunctions.createProjectsDiv()
+} else {
+  window.history.pushState({}, '', '/');
+  mainFunctions.createHome(true);
+}
 
-// import io from './socket.io-client'
 import '/socket.io-client/socket.io.min.js'
 
+// настройка соединения сокета
 const Socket = {
   socket: null,
 
@@ -31,21 +38,20 @@ const Socket = {
 }
 
 const socket = await Socket.init()
-export default socket
 
+// сообщение о подключенни к серверу
 socket.on('connect', () => {
   sessionStorage.setItem('socketId', socket.id)
   console.log('Connected to server with id: ' + socket.id);
 });
-
+// сообщение о разрыве соединения
 socket.on('disconnect', () => {
   console.log('Disconnected from server');
 });
 
+// принятие сообщений с сервера
 socket.on('message', (message) => {
-  console.log(message);
   socket.showFlashMessage(message);
-
   var page = window.location.pathname
   var arr = []
   page = page.split('/')
@@ -54,11 +60,10 @@ socket.on('message', (message) => {
       arr.push(page[i])
     }
   }
-
-  console.log(arr)
+  // получение данных (webHook)
   if (arr[0] === 'projects') {
     if (message.object_kind === 'issue') {
-      const div = document.getElementById(message.project.id)
+      const div = document.getElementById(`projectDiv${message.project.id}`)
       const update = div.childNodes[1]
       const lastActivityDate = new Date(message.object_attributes.updated_at)
       const lastActivityDateStr = lastActivityDate.toDateString()
@@ -80,7 +85,20 @@ socket.on('message', (message) => {
 
       }
     }
+  } 
+  // получение данных с сервера
+  if(message.mod === 'issue') {
+    message.body.state = message.body.state_event === "reopen" ? "opened" : "closed"
+    const issues = state.issues.map(issue => {
+      if (issue.iid === message.body.issue_iid) {
+        return message.body
+      }
+      return issue
+    })
+    state.issues = issues
+    state.replaceIssues()
   }
+  
   
 });
 
@@ -109,9 +127,13 @@ socket.showFlashMessage = (message) => {
       flashMessage.style.display = 'none'
     }, 5000)
   }
+  else if (message.mod === 'issue'){
+    flashMessage.innerHTML = `The question titled ${message.body.title} has been changed` 
+    flashMessage.style.display = 'flex'
+    setTimeout(() => {
+      flashMessage.style.display = 'none'
+    }, 5000)
+  }
 }
 
-socket.on("register", (data) => {
-  console.log(data);
-});
-
+export default socket

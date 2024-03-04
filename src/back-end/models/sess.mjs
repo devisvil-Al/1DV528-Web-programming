@@ -1,8 +1,7 @@
 import session from 'express-session'
-
-
 const SES = {}
 
+// контроль сессии
 SES.session = session({
   cookie: {
     maxAge: 1800000
@@ -13,14 +12,7 @@ SES.session = session({
 })
 
 SES.memoryStore = new session.MemoryStore(SES.session);
-
-SES.getMemoryStore = () => {
-  return SES.memoryStore
-}
-
-SES.getSession = () => {
-  return SES.session
-}
-
+SES.getMemoryStore = () => SES.memoryStore
+SES.getSession = () => SES.session
 
 export default SES
